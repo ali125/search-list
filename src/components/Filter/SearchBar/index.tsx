@@ -22,9 +22,12 @@ const SearchBar = () => {
     }
   }, [searchTerm]);
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
-  }, []);
+  const handleChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>(
+    (e) => {
+      setSearchText(e.target.value);
+    },
+    []
+  );
 
   const handleSubmit = useCallback(
     (text: string) => {
